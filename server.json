@@ -1,0 +1,32 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "decixa-mcp",
+  "description": "MCP Server for Decixa — The decision layer for AI Agents. Enables AI agents to discover, evaluate, and select APIs by capability.",
+  "homepage": "https://decixa.ai",
+  "license": "MIT",
+  "icon": "https://decixa.ai/icon.png",
+  "tools": [
+    {
+      "name": "search_apis",
+      "description": "Search for APIs by intent or capability. Returns top-ranked APIs by trust score."
+    },
+    {
+      "name": "browse_apis",
+      "description": "Browse the full API index with optional filters (capability, domain, billing model)."
+    },
+    {
+      "name": "get_api_detail",
+      "description": "Get full details for a specific API including pricing, endpoints, and trust signals."
+    },
+    {
+      "name": "list_capabilities",
+      "description": "List all available capability categories and domain tags used for filtering."
+    },
+    {
+      "name": "get_index",
+      "description": "Get the machine-readable discovery index of all verified APIs."
+    }
+  ],
+  "prompts": [],
+  "resources": []
+}
