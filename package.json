@@ -13,7 +13,7 @@
   "type": "module",
   "main": "./dist/index.js",
   "bin": {
-    "decixa-mcp": "./dist/index.js"
+    "decixa-mcp": "dist/index.js"
   },
   "files": [
     "dist"
