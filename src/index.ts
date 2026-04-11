@@ -24,7 +24,7 @@ import { listCapabilitiesTool, handleListCapabilities } from "./tools/list-capab
 import { getIndexTool,       handleGetIndex       } from "./tools/get-index.js";
 
 const server = new Server(
-  { name: "decixa-mcp", version: "0.1.0" },
+  { name: "decixa-mcp", version: "0.1.1" },
   { capabilities: { tools: {} } },
 );
 
