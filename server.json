@@ -1,6 +1,6 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "koki-socialgist/decixa-mcp",
+  "name": "io.github.koki-socialgist/decixa-mcp",
   "description": "Decixa MCP Server — discover and select APIs by capability for AI agents.",
   "homepage": "https://decixa.ai",
   "license": "MIT",
