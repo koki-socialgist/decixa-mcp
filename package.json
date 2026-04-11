@@ -1,0 +1,36 @@
+{
+  "name": "decixa-mcp",
+  "version": "0.1.0",
+  "description": "MCP Server for Decixa — The decision layer for AI Agents",
+  "keywords": [
+    "mcp",
+    "decixa",
+    "api-discovery",
+    "x402",
+    "ai-agents"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "bin": {
+    "decixa-mcp": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.10.1"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "typescript": "^5.4.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
