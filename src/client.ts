@@ -5,7 +5,7 @@
  * API key:  DECIXA_API_KEY env var (placeholder — currently unused)
  */
 
-const BASE_URL = (process.env.DECIXA_API_URL ?? "https://socialgist-data-exchange.vercel.app").replace(/\/$/, "");
+const BASE_URL = (process.env.DECIXA_API_URL ?? "https://api.decixa.ai").replace(/\/$/, "");
 const API_KEY  = process.env.DECIXA_API_KEY ?? "";
 
 function buildHeaders(): Record<string, string> {

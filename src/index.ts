@@ -6,7 +6,7 @@
  *   npx decixa-mcp
  *
  * Environment variables:
- *   DECIXA_API_URL  — Base URL of the Decixa API (default: https://socialgist-data-exchange.vercel.app)
+ *   DECIXA_API_URL  — Base URL of the Decixa API (default: https://api.decixa.ai)
  *   DECIXA_API_KEY  — API key (placeholder, currently unused)
  */
 

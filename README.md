@@ -148,7 +148,7 @@ No parameters required.
 
 | Variable | Default | Description |
 |----------|---------|-------------|
-| `DECIXA_API_URL` | `https://socialgist-data-exchange.vercel.app` | Decixa API base URL |
+| `DECIXA_API_URL` | `https://api.decixa.ai` | Decixa API base URL |
 | `DECIXA_API_KEY` | *(empty)* | API key — reserved for future use |
 
 ## License
