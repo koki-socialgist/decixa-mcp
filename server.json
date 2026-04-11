@@ -1,7 +1,7 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "decixa-mcp",
-  "description": "MCP Server for Decixa — The decision layer for AI Agents. Enables AI agents to discover, evaluate, and select APIs by capability.",
+  "name": "koki-socialgist/decixa-mcp",
+  "description": "Decixa MCP Server — discover and select APIs by capability for AI agents.",
   "homepage": "https://decixa.ai",
   "license": "MIT",
   "icon": "https://decixa.ai/icon.png",
