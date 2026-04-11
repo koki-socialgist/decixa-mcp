@@ -1,6 +1,6 @@
 {
   "name": "decixa-mcp",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "MCP Server for Decixa — The decision layer for AI Agents",
   "keywords": [
     "mcp",
