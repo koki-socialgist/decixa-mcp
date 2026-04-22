@@ -5,6 +5,8 @@ export const getApiDetailTool = {
   description:
     "Get full details for a specific API by its ID. " +
     "Returns endpoint URL, pricing, capability, tags, agent compatibility, schema info, use cases, trust score, and provider. " +
+    "The top-level `verified_live` boolean indicates whether this API is verified to accept x402 payments; " +
+    "unlike search_apis/browse_apis, detail also returns APIs that are not yet verified. " +
     "Use this after search_apis or browse_apis to inspect a specific API before calling it.",
   inputSchema: {
     type: "object",

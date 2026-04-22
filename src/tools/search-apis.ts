@@ -4,6 +4,7 @@ export const searchApisTool = {
   name: "search_apis",
   description:
     "Find the best API for a task using natural language. Returns the top recommendation and up to 2 alternatives. " +
+    "Only returns APIs verified to accept x402 payments (payment_req_parsed === true). " +
     "Use this when you know what you want to do (intent) but not which API to call. " +
     "Optionally narrow results by capability, budget, or latency.",
   inputSchema: {

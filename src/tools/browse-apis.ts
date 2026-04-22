@@ -4,6 +4,7 @@ export const browseApisTool = {
   name: "browse_apis",
   description:
     "Browse and filter the Decixa API catalog. Returns a paginated list of APIs matching the given criteria. " +
+    "Only returns APIs verified to accept x402 payments (payment_req_parsed === true). " +
     "All parameters are optional — call with no arguments to get the top APIs by trust score. " +
     "Use search_apis instead when you have a specific intent and want a single recommendation.",
   inputSchema: {
