@@ -28,7 +28,7 @@ What APIs can analyze wallet risk? Budget: $0.005 per call
 Find an x402-ready API to transcribe audio under $0.01
 ```
 
-Claude Code will call `search_apis` and return the best options with pricing, endpoint, and trust score.
+Claude Code will call `resolve` and return the best options with pricing, endpoint, and trust signals.
 
 ---
 
@@ -74,10 +74,11 @@ For teams using a shared `.mcp.json`:
 
 | Tool | When to use |
 |------|-------------|
-| `search_apis` | You know what you want to do, need the best API |
-| `browse_apis` | Exploring options, filtering by tag/capability/budget |
-| `get_api_detail` | Inspecting a specific API before calling it |
-| `list_capabilities` | Unsure which capability category applies |
+| `resolve` | You know what you want, need a single recommendation (Phase 3 ranking) |
+| `discover` | Exploring options, want a ranked list with filters |
+| `search_apis` | DEPRECATED — alias for `resolve`, removed in v1.0.0 |
+| `browse_apis` | DEPRECATED — alias for `discover`, removed in v1.0.0 |
+| `get_api_detail` | Inspecting a specific API before calling it (returns trust_evidence) |
 | `get_index` | First time — get platform overview |
 
 ---

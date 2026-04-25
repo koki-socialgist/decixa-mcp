@@ -17,23 +17,23 @@ import {
   ListToolsRequestSchema,
 } from "@modelcontextprotocol/sdk/types.js";
 
-import { searchApisTool,     handleSearchApis     } from "./tools/search-apis.js";
-import { browseApisTool,     handleBrowseApis     } from "./tools/browse-apis.js";
-import { getApiDetailTool,   handleGetApiDetail   } from "./tools/get-api-detail.js";
-import { listCapabilitiesTool, handleListCapabilities } from "./tools/list-capabilities.js";
-import { getIndexTool,       handleGetIndex       } from "./tools/get-index.js";
+import { resolveTool, searchApisTool, handleResolve  } from "./tools/resolve.js";
+import { discoverTool, browseApisTool, handleDiscover } from "./tools/discover.js";
+import { getApiDetailTool, handleGetApiDetail } from "./tools/get-api-detail.js";
+import { getIndexTool, handleGetIndex } from "./tools/get-index.js";
 
 const server = new Server(
-  { name: "decixa-mcp", version: "0.1.4" },
+  { name: "decixa-mcp", version: "0.1.7" },
   { capabilities: { tools: {} } },
 );
 
 server.setRequestHandler(ListToolsRequestSchema, async () => ({
   tools: [
-    searchApisTool,
-    browseApisTool,
+    resolveTool,
+    discoverTool,
+    searchApisTool,   // alias for resolve, deprecated, removed in v1.0.0
+    browseApisTool,   // alias for discover, deprecated, removed in v1.0.0
     getApiDetailTool,
-    listCapabilitiesTool,
     getIndexTool,
   ],
 }));
@@ -45,17 +45,16 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
     let text: string;
 
     switch (name) {
-      case "search_apis":
-        text = await handleSearchApis(args);
+      case "resolve":
+      case "search_apis":  // deprecated alias (v1.0.0 で削除)
+        text = await handleResolve(args);
         break;
-      case "browse_apis":
-        text = await handleBrowseApis(args);
+      case "discover":
+      case "browse_apis":  // deprecated alias (v1.0.0 で削除)
+        text = await handleDiscover(args);
         break;
       case "get_api_detail":
         text = await handleGetApiDetail(args);
-        break;
-      case "list_capabilities":
-        text = handleListCapabilities(args);
         break;
       case "get_index":
         text = await handleGetIndex();

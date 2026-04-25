@@ -11,7 +11,7 @@ const API_KEY  = process.env.DECIXA_API_KEY ?? "";
 function buildHeaders(): Record<string, string> {
   const headers: Record<string, string> = {
     "Content-Type": "application/json",
-    "User-Agent": "decixa-mcp/0.1.0",
+    "User-Agent": "decixa-mcp/0.1.7",
   };
   if (API_KEY) headers["Authorization"] = `Bearer ${API_KEY}`;
   return headers;

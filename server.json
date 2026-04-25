@@ -1,31 +1,35 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.koki-socialgist/decixa-mcp",
-  "version": "0.1.6",
-  "description": "Decixa MCP Server — discover and select APIs by capability for AI agents.",
+  "version": "0.1.7",
+  "description": "Decixa MCP Server — intent-driven API discovery and selection for AI agents.",
   "homepage": "https://decixa.ai",
   "license": "MIT",
   "icon": "https://decixa.ai/icon.png",
   "tools": [
     {
+      "name": "resolve",
+      "description": "Find the best API for a task using natural language. Returns top recommendation + alternatives, ranked by Phase 3 vector + scoring."
+    },
+    {
+      "name": "discover",
+      "description": "List APIs ranked by intent. Returns multiple candidates so the agent can choose. Verified-x402 only."
+    },
+    {
       "name": "search_apis",
-      "description": "Search for APIs by intent or capability. Returns top-ranked APIs verified to accept x402 payments."
+      "description": "DEPRECATED alias for resolve. Will be removed in v1.0.0."
     },
     {
       "name": "browse_apis",
-      "description": "Browse the API index with optional filters (capability, domain, billing model). Returns APIs verified to accept x402 payments."
+      "description": "DEPRECATED alias for discover. Will be removed in v1.0.0."
     },
     {
       "name": "get_api_detail",
-      "description": "Get full details for a specific API including pricing, endpoints, trust signals, and verified_live flag."
-    },
-    {
-      "name": "list_capabilities",
-      "description": "List all available capability categories and domain tags used for filtering."
+      "description": "Get full details for a specific API including pricing, endpoints, trust_evidence signals, and verified_live flag."
     },
     {
       "name": "get_index",
-      "description": "Get the machine-readable discovery index of all verified APIs."
+      "description": "Get the machine-readable Decixa agent index — endpoints, total API count, and usage guidance."
     }
   ],
   "prompts": [],
