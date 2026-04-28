@@ -1,7 +1,7 @@
 # decixa-mcp
 
 **Find the right API for your AI agent.**
-20,072+ APIs indexed. 2,269 x402 proven live.
+30,000+ listings tracked. 5,500+ verified live as of April 2026.
 
 MCP Server for [Decixa](https://decixa.ai) — The decision layer for AI Agents.
 
@@ -63,7 +63,7 @@ Unlike x402.direct, Decixa verifies x402 compliance by actually probing each end
 
 | | Decixa | x402.direct |
 |--|--------|-------------|
-| APIs indexed | 20,072+ | ~4,000 |
+| Listings tracked | 30,000+ | ~4,000 |
 | x402 verification | HTTP 402 probe (real) | Metadata scoring |
 | Capability classification | 9 verb-based axes | — |
 | Intent → API resolution | `/api/agent/resolve` | — |
