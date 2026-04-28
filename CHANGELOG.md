@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.1.8 (2026-04-27)
+
+### Changed
+- README: numbers synced with Decixa April 2026 state-of-x402 report. `20,072+ APIs indexed / 2,269 x402 proven live` → `30,000+ listings tracked / 5,500+ verified live as of April 2026`. Comparison table label `APIs indexed` → `Listings tracked` (D-040 narrative alignment — "indexed" is deprecated, "verified live" is the only public number).
+
+No code or schema changes — README-only release to keep the npm-listed numbers consistent with what the public report shows.
+
 ## v0.1.7 (2026-04-25)
 
 Phase 3b step 2 — intent-driven update aligned with Decixa Agent Hub API v1.1.0.

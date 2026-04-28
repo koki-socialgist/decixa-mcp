@@ -23,7 +23,7 @@ import { getApiDetailTool, handleGetApiDetail } from "./tools/get-api-detail.js"
 import { getIndexTool, handleGetIndex } from "./tools/get-index.js";
 
 const server = new Server(
-  { name: "decixa-mcp", version: "0.1.7" },
+  { name: "decixa-mcp", version: "0.1.8" },
   { capabilities: { tools: {} } },
 );
 
