@@ -17,7 +17,17 @@ const discoverInputSchema = {
     },
     budget: {
       type: "number",
-      description: "Maximum USDC cost per call",
+      description: "DEPRECATED in v0.1.9. Prefer cost_max_per_call_usdc. Maximum USDC cost per call. Invalid values silently ignored. When both budget and cost_max_per_call_usdc are set, the stricter (smaller) value applies.",
+    },
+    cost_max_per_call_usdc: {
+      type: "number",
+      minimum: 0,
+      description: "v0.1.9 (D-084): Maximum cost per call in USDC. Invalid values (negative, NaN) return 400. When both budget and this are set, the stricter (smaller) value applies.",
+    },
+    latency_p95_max_ms: {
+      type: "number",
+      exclusiveMinimum: 0,
+      description: "v0.1.9 (D-084): Maximum measured p95 latency in milliseconds. Invalid values (≤0, NaN) return 400. APIs with no measured p95_latency_ms are excluded from results when this filter is set.",
     },
     latency_tier: {
       type: "string",
@@ -86,6 +96,9 @@ interface DiscoverInput {
   intent: string;
   tag?: string;
   budget?: number;
+  // v0.1.9 (D-084)
+  cost_max_per_call_usdc?: number;
+  latency_p95_max_ms?: number;
   latency_tier?: string;
   execution_mode?: string;
   pricing_model?: string;
@@ -102,6 +115,9 @@ export async function handleDiscover(args: unknown): Promise<string> {
   if (a.intent)         params.task           = a.intent;  // MCP intent → HTTP task
   if (a.tag)            params.tag            = a.tag;
   if (a.budget !== undefined) params.budget   = a.budget;
+  // v0.1.9 (D-084)
+  if (a.cost_max_per_call_usdc !== undefined) params.cost_max_per_call_usdc = a.cost_max_per_call_usdc;
+  if (a.latency_p95_max_ms !== undefined)     params.latency_p95_max_ms     = a.latency_p95_max_ms;
   if (a.latency_tier)   params.latency_tier   = a.latency_tier;
   if (a.execution_mode) params.execution_mode = a.execution_mode;
   if (a.pricing_model)  params.pricing_model  = a.pricing_model;

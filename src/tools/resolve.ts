@@ -12,7 +12,17 @@ const resolveInputSchema = {
     },
     budget: {
       type: "number",
-      description: "Maximum USDC cost per call (e.g. 0.01)",
+      description: "DEPRECATED in v0.1.9. Prefer cost_max_per_call_usdc. Maximum USDC cost per call (e.g. 0.01). Invalid values silently ignored. When both budget and cost_max_per_call_usdc are set, the stricter (smaller) value applies.",
+    },
+    cost_max_per_call_usdc: {
+      type: "number",
+      minimum: 0,
+      description: "v0.1.9 (D-084): Maximum cost per call in USDC. Invalid values (negative, NaN) return 400. When both budget and this are set, the stricter (smaller) value applies.",
+    },
+    latency_p95_max_ms: {
+      type: "number",
+      exclusiveMinimum: 0,
+      description: "v0.1.9 (D-084): Maximum measured p95 latency in milliseconds. Invalid values (≤0, NaN) return 400. APIs with no measured p95_latency_ms are excluded from results when this filter is set.",
     },
     latency: {
       type: "string",
@@ -52,16 +62,25 @@ export const searchApisTool = {
 interface ResolveInput {
   intent: string;
   budget?: number;
+  // v0.1.9 (D-084)
+  cost_max_per_call_usdc?: number;
+  latency_p95_max_ms?: number;
   latency?: "low" | "medium" | "high";
   min_similarity?: number;
 }
 
 export async function handleResolve(args: unknown): Promise<string> {
-  const { intent, budget, latency, min_similarity } = (args ?? {}) as ResolveInput;
+  const {
+    intent, budget, cost_max_per_call_usdc, latency_p95_max_ms,
+    latency, min_similarity,
+  } = (args ?? {}) as ResolveInput;
 
   const body: Record<string, unknown> = { intent };
   const constraints: Record<string, unknown> = {};
   if (budget !== undefined) constraints.budget = budget;
+  // v0.1.9 (D-084)
+  if (cost_max_per_call_usdc !== undefined) constraints.cost_max_per_call_usdc = cost_max_per_call_usdc;
+  if (latency_p95_max_ms !== undefined) constraints.latency_p95_max_ms = latency_p95_max_ms;
   if (latency) constraints.latency = latency;
   if (Object.keys(constraints).length > 0) body.constraints = constraints;
   if (min_similarity !== undefined) body.min_similarity = min_similarity;

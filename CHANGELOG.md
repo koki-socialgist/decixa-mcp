@@ -1,5 +1,30 @@
 # Changelog
 
+## v0.1.9 (2026-04-29)
+
+D-084 — new constraint filters from Decixa Agent Hub API.
+
+### Added
+- **`cost_max_per_call_usdc`** parameter on `resolve` and `discover` tools — Maximum cost per call in USDC. Invalid values (negative, NaN) return HTTP 400 from the server. Use this for new code instead of `budget`.
+- **`latency_p95_max_ms`** parameter on `resolve` and `discover` tools — Maximum measured p95 latency in milliseconds. Invalid values (≤0, NaN) return HTTP 400. APIs with no measured p95 are excluded from results when this filter is set.
+
+### Changed
+- `budget` parameter on both tools is now marked DEPRECATED in description. Prefer `cost_max_per_call_usdc`. `budget` is still accepted for backward compatibility (server silently ignores invalid values). When both are specified, the **stricter (smaller) value applies** (e.g., `budget: 0.05` + `cost_max_per_call_usdc: 0.01` → `0.01` applies).
+
+### Migration
+No breaking changes. Existing v0.1.8 callers continue to work. Example using new filters:
+
+```
+# resolve with bandit-friendly constraints
+mcp: resolve({
+  intent: "real-time crypto price for BTC",
+  cost_max_per_call_usdc: 0.01,
+  latency_p95_max_ms: 500
+})
+```
+
+---
+
 ## v0.1.8 (2026-04-27)
 
 ### Changed
